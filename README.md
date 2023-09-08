@@ -34,3 +34,10 @@ cd design-system
 ```bash
 npm install
 ```
+
+## Documentação
+Para saber mais sobre nossas decisões técnicas e acordos de time, você pode acessar nossa documentação:
+
+- [Frontend - Acordos de Time](https://docs.google.com/document/d/1rBTcU_vRXJFTheVhI3NvlGqUpIiQ0-bqqAXs51zWBVs/edit?usp=sharing)
+- [Design - Acordos de Time](https://docs.google.com/document/d/1fJCRF3QhWmhbzRK82TNt9hBemvqzz6AUKe0Z-FkYNrA/edit?usp=sharing)
+- [Design - Decisões Técnicas](https://docs.google.com/document/d/17YbYh38JS4bTqb4gSozws5Lai2zzjPw724Z47CU05vg/edit?usp=sharing)
