@@ -15,7 +15,7 @@ Para que todos tenham o ambiente de desenvolvimento o mais parecido possível e 
 | Git | A mais recente |
 | NodeJS | v18.17.1 |
 
-Para instalar as devidas versões, siga o passo a passo do arquivo [`dev-environment.md`]().
+Para instalar as devidas versões, siga o passo a passo do arquivo [`dev_environment.md`](./.github/docs/dev_environment.md).
 
 ## Guia de Instalação
 > Com as ferramentas devidamente instaladas, execute os comandos abaixo
