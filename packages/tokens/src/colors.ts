@@ -3,10 +3,9 @@ export const colors = {
 
   greenishWhite: '#FCFDFD',
 
-  gray100: '#121214',
-  gray200: '#383D3B',
+  darkGray: '#121214',
+  gray: '#383D3B',
 
   green: '#00875F',
-  greenLight: '#01EFA7'
-
+  lightGreen: '#01EFA7'
 }
