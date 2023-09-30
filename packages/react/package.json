@@ -1,0 +1,22 @@
+{
+  "name": "@campusativo-ui/react",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "modules": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
+    "dev": "tsup src/index.tsx --format esm,cjs --dts --external react --watch",
+    "lint": "eslint src/**/*.ts* --fix"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@campusativo-ui/eslint-config": "*",
+    "@campusativo-ui/tokens": "*",
+    "@campusativo-ui/ts-config": "*",
+    "@types/react-dom": "^18.2.8",
+    "react": "^18.2.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  }
+}
