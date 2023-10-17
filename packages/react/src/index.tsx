@@ -1,5 +1,12 @@
-import { colors } from '@campusativo-ui/tokens'
+import { styled } from './styles'
+
+const Button = styled('button', {
+  fontFamily: '$default',
+  backgroundColor: '$darkGray',
+  borderRadius: '$md',
+  padding: '$4',
+})
 
 export function App() {
-  return <h1 style={{ color: colors.green }}>Hello World</h1>
+  return <Button>Hello World</Button>
 }
