@@ -2,7 +2,7 @@
   "name": "@campusativo-ui/tokens",
   "version": "1.0.0",
   "main": "./dist/index.js",
-  "modules": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
