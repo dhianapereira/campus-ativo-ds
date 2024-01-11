@@ -3,9 +3,7 @@
 Caso queira contribuir com novos componentes, melhorias e/ou correções no projeto, siga os passos do arquivo [CONTRIBUTING.md](./.github/docs/CONTRIBUTING.md) e dá uma conferida no nosso [Fluxo de Trabalho](./.github/docs/workflow.md).
 
 ## Design System
-Os tokens e componentes do Design System foram criados no Figma. Para acessar, [clique aqui]().
-
-![Design]()
+Os tokens e componentes do Design System foram criados no Figma. Para acessar, [clique aqui](https://www.figma.com/file/funQY0pFnfx28yBEYmfmnF/design-system?type=design&node-id=132%3A182&mode=design&t=D9Hq8odDk7pAuv7C-1).
 
 ## Ambiente de Desenvolvimento
 Para que todos tenham o ambiente de desenvolvimento o mais parecido possível e evitar problemas, certifique-se de ter as ferramentas acima com as seguintes versões:
