@@ -47,3 +47,5 @@ export const StatusBadge = styled('div', {
 })
 
 export type StatusBadgeProps = ComponentProps<typeof StatusBadge>
+
+StatusBadge.displayName = 'StatusBadge'

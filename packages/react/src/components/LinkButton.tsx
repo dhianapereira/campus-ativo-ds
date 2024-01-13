@@ -47,3 +47,5 @@ export const LinkButton = styled('a', {
 export interface LinkButtonProps extends ComponentProps<typeof LinkButton> {
   as?: ElementType
 }
+
+LinkButton.displayName = 'LinkButton'
