@@ -11,8 +11,17 @@ export default {
     }
   ],
   args: {
-    children: "Esqueci a senha"
+    children: "Esqueci a senha",
+    variant: 'green',
   },
+  argTypes: {
+    variant: {
+      options: ['green', 'white'],
+      control: {
+        type: 'inline-radio'
+      },
+    },
+  }
 } as Meta<LinkButtonProps>
 
 export const Green: StoryObj<LinkButtonProps> = {}

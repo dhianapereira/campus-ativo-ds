@@ -4,7 +4,17 @@ import { StatusBadge, StatusBadgeProps } from '@campusativo-ui/react'
 export default {
   title: 'Data display/Status Badge',
   component: StatusBadge,
-  args: {},
+  args: {
+    variant: 'toAnalysis',
+  },
+  argTypes: {
+    variant: {
+      options: ['toAnalysis', 'inAnalysis', 'accepted', 'rejected', 'inProgress', 'finished'],
+      control: {
+        type: 'inline-radio',
+      },
+    }
+  }
 } as Meta<StatusBadgeProps>
 
 

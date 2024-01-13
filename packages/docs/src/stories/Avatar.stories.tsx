@@ -8,6 +8,18 @@ export default {
     src: 'https://github.com/campusativo.png',
     alt: 'Avatar Image',
   },
+  argTypes: {
+    src: {
+      control: {
+        type: 'text',
+      },
+    },
+    alt: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 } as Meta<AvatarProps>
 
 export const Primary: StoryObj<AvatarProps> = {}

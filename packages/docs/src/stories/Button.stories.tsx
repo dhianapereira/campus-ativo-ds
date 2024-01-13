@@ -7,9 +7,16 @@ export default {
   component: Button,
   args: {
     disabled: false,
-    children: "Enviar"
+    children: "Enviar",
+    variant: 'primary',
   },
   argTypes: {
+    variant: {
+      options: ['primary', 'secondary'],
+      control: {
+        type: 'inline-radio'
+      },
+    },
     disabled: {
       control: {
         type: 'boolean',
