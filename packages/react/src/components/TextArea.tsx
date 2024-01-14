@@ -25,8 +25,8 @@ export const TextArea = styled('textarea', {
     cursor: 'not-allowed',
   },
 
-  '&:placeholder': {
-    cursor: '$gray',
+  '&::placeholder': {
+    color: '$lightGray',
   },
 })
 
