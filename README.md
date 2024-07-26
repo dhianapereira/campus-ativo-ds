@@ -3,15 +3,15 @@
 Caso queira contribuir com novos componentes, melhorias e/ou correções no projeto, siga os passos do arquivo [CONTRIBUTING.md](./.github/docs/CONTRIBUTING.md) e dá uma conferida no nosso [Fluxo de Trabalho](./.github/docs/workflow.md).
 
 ## Design System
-Os tokens e componentes do Design System foram criados no Figma. Para acessar, [clique aqui](https://www.figma.com/file/funQY0pFnfx28yBEYmfmnF/design-system?type=design&node-id=132%3A182&mode=design&t=D9Hq8odDk7pAuv7C-1).
+Os tokens e componentes do Design System foram criados no Figma. Para acessar, [clique aqui](https://www.figma.com/design/uRxcTWge7V9l36AfLkKclf/design?node-id=4-2&t=Qp7ItAHfL4qVFWGm-1).
 
 ## Ambiente de Desenvolvimento
 Para que todos tenham o ambiente de desenvolvimento o mais parecido possível e evitar problemas, certifique-se de ter as ferramentas acima com as seguintes versões:
 
-| Ferramenta | Versão |
-| --- | --- |
-| Git | A mais recente |
-| NodeJS | v18.17.1 |
+| Ferramenta | Versão         |
+| ---------- | -------------- |
+| Git        | A mais recente |
+| NodeJS     | v18.17.1       |
 
 Para instalar as devidas versões, siga o passo a passo do arquivo [`dev_environment.md`](./.github/docs/dev_environment.md).
 
@@ -32,10 +32,3 @@ cd design-system
 ```bash
 npm install
 ```
-
-## Documentação
-Para saber mais sobre nossas decisões técnicas e acordos de time, você pode acessar nossa documentação:
-
-- [Frontend - Acordos de Time](https://docs.google.com/document/d/1rBTcU_vRXJFTheVhI3NvlGqUpIiQ0-bqqAXs51zWBVs/edit?usp=sharing)
-- [Design - Acordos de Time](https://docs.google.com/document/d/1fJCRF3QhWmhbzRK82TNt9hBemvqzz6AUKe0Z-FkYNrA/edit?usp=sharing)
-- [Design - Decisões Técnicas](https://docs.google.com/document/d/17YbYh38JS4bTqb4gSozws5Lai2zzjPw724Z47CU05vg/edit?usp=sharing)
