@@ -1,6 +1,6 @@
 # Campus Ativo UI
 
-Caso queira contribuir com novos componentes, melhorias e/ou correções no projeto, siga os passos do arquivo [CONTRIBUTING.md](./.github/docs/CONTRIBUTING.md) e dá uma conferida no nosso [Fluxo de Trabalho](./.github/docs/workflow.md).
+Caso queira contribuir com novos componentes, melhorias e/ou correções no projeto, siga os passos do arquivo [CONTRIBUTING.md](./.github/docs/CONTRIBUTING.md).
 
 ## Design System
 Os tokens e componentes do Design System foram criados no Figma. Para acessar, [clique aqui](https://www.figma.com/design/uRxcTWge7V9l36AfLkKclf/design?node-id=4-2&t=Qp7ItAHfL4qVFWGm-1).
