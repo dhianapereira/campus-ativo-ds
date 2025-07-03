@@ -5,38 +5,38 @@ export const StatusBadge = styled('div', {
   fontFamily: '$default',
   fontSize: '$sm',
   fontWeight: '$medium',
-  borderRadius: '8px',
+  borderRadius: '$xs',
   display: 'inline-flex',
-  padding: '$1 $2',
+  padding: '$1 $3',
   justifyContent: 'center',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   gap: '10px',
 
   variants: {
     variant: {
       toAnalysis: {
-        color: '$greenishWhite',
-        backgroundColor: '$darkBlue',
+        color: '$blue',
+        backgroundColor: '$lightBlue',
       },
       inAnalysis: {
-        color: '$greenishWhite',
-        backgroundColor: '$blue',
+        color: '$blue',
+        backgroundColor: '$lightBlue',
       },
       accepted: {
-        color: '$gray',
-        backgroundColor: '$orange',
+        color: '$orange',
+        backgroundColor: '$lightOrange',
       },
       rejected: {
-        color: '$greenishWhite',
-        backgroundColor: '$red',
+        color: '$red',
+        backgroundColor: '$lightRed',
       },
       inProgress: {
-        color: '$gray',
-        backgroundColor: '$yellow',
+        color: '$yellow',
+        backgroundColor: '$lightYellow',
       },
       finished: {
-        color: '$gray',
-        backgroundColor: '$greenAccent',
+        color: '$green',
+        backgroundColor: '$lightGreen2',
       },
     },
   },
