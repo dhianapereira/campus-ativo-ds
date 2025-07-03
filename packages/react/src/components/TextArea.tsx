@@ -1,13 +1,12 @@
-import { ComponentProps } from 'react'
+import { ComponentProps, useState } from 'react'
 import { styled } from '../styles'
 
-export const TextArea = styled('textarea', {
+const TextAreaStyled = styled('textarea', {
   backgroundColor: '$white',
   padding: '$3 $4',
   borderRadius: '$sm',
   boxSizing: 'border-box',
   border: '1px solid $lightGray',
-
   fontFamily: '$default',
   fontSize: '$sm',
   color: '$gray',
@@ -28,8 +27,68 @@ export const TextArea = styled('textarea', {
   '&::placeholder': {
     color: '$lightGray',
   },
+
+  variants: {
+    hasError: {
+      true: {
+        border: '2px solid $red',
+        '&:focus': {
+          border: '2px solid $red',
+        },
+      },
+    },
+    isAutocomplete: {
+      true: {
+        backgroundColor: '$lightBlue',
+      },
+    },
+  },
 })
 
-export type TextAreaProps = ComponentProps<typeof TextArea>
+export interface TextAreaProps extends ComponentProps<typeof TextAreaStyled> {
+  hasError?: boolean
+  isAutocomplete?: boolean
+  maxLength?: number
+  showCounter?: boolean
+}
+
+export const TextArea = ({
+  hasError,
+  isAutocomplete,
+  maxLength,
+  showCounter,
+  ...props
+}: TextAreaProps) => {
+  const [value, setValue] = useState(props.value || '')
+  const currentLength = value.toString().length
+
+  return (
+    <div>
+      <TextAreaStyled
+        hasError={hasError}
+        isAutocomplete={isAutocomplete}
+        maxLength={maxLength}
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value)
+          props.onChange?.(e)
+        }}
+        {...props}
+      />
+      {showCounter && maxLength && (
+        <TextAreaCounter>
+          {currentLength}/{maxLength}
+        </TextAreaCounter>
+      )}
+    </div>
+  )
+}
+
+const TextAreaCounter = styled('div', {
+  fontSize: '$xs',
+  color: '$lightGray',
+  textAlign: 'right',
+  marginTop: '$1',
+})
 
 TextArea.displayName = 'TextArea'

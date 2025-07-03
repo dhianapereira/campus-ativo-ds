@@ -18,13 +18,22 @@ export const TextInputContainer = styled('div', {
     opacity: 0.5,
     cursor: 'not-allowed',
   },
-})
 
-export const Suffix = styled('span', {
-  color: '$green',
-  width: 24,
-  height: 24,
-  fontSize: '24px',
+  variants: {
+    hasError: {
+      true: {
+        border: '2px solid $red',
+        '&:has(input:focus)': {
+          border: '2px solid $red',
+        },
+      },
+    },
+    isAutocomplete: {
+      true: {
+        backgroundColor: '$lightBlue',
+      },
+    },
+  },
 })
 
 export const Input = styled('input', {
@@ -49,4 +58,18 @@ export const Input = styled('input', {
   '&::placeholder': {
     color: '$lightGray',
   },
+})
+
+export const Suffix = styled('span', {
+  color: '$green',
+  width: 24,
+  height: 24,
+  fontSize: '24px',
+})
+
+export const CharCounter = styled('div', {
+  fontSize: '$xs',
+  color: '$lightGray',
+  textAlign: 'right',
+  marginTop: '$1',
 })
