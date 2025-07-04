@@ -30,7 +30,7 @@ export const TextInputContainer = styled('div', {
     },
     isAutocomplete: {
       true: {
-        backgroundColor: '$lightBlue',
+        backgroundColor: 'transparent',
       },
     },
   },
