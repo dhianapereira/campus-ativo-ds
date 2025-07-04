@@ -39,7 +39,7 @@ const TextAreaStyled = styled('textarea', {
     },
     isAutocomplete: {
       true: {
-        backgroundColor: '$lightBlue',
+        backgroundColor: 'transparent',
       },
     },
   },

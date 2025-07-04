@@ -75,7 +75,7 @@ export const WithError: StoryObj<TextInputProps> = {
   args: {
     hasError: true,
     placeholder: "O e-mail deve ser @ifal.edu.br",
-    defaultValue: "dhianaslv@outlook.com",
+    defaultValue: "email@email.com",
   }
 }
 
@@ -83,7 +83,7 @@ export const WithAutocomplete: StoryObj<TextInputProps> = {
   args: {
     isAutocomplete: true,
     placeholder: "Email",
-    defaultValue: "dhianaslv@outlook.com",
+    defaultValue: "email@email.com",
   }
 }
 
@@ -101,7 +101,7 @@ export const WithErrorAndCounter: StoryObj<TextInputProps> = {
     maxLength: 30,
     showCounter: true,
     placeholder: "Email muito longo",
-    defaultValue: "dhianaslv@outlook.com.br.muito.longo",
+    defaultValue: "email@email.muito.longo",
   }
 }
 
