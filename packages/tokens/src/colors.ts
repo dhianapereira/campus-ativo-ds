@@ -9,7 +9,12 @@ export const colors = {
   greenAccent: '#1FEF68',
   darkBlue: '#083A98',
   blue: '#0052EA',
+  lightBlue: '#F0F4FF',
   orange: '#FCA004',
+  lightOrange: '#FFF8F0',
   yellow: '#F5D113',
+  lightYellow: '#FFFEF0',
   red: '#9A0E03',
+  lightRed: '#FFF0F0',
+  lightGreen2: '#F0FFF4',
 }
