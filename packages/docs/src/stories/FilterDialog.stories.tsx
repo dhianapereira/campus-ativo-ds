@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
-import { Box, Button, FilterDialog, FilterDialogProps } from '@campusativo-ui/react'
+import { Box, Button, FilterDialog, FilterDialogProps, FilterOption } from '@campusativo-ui/react'
 import { Funnel } from 'phosphor-react'
 
 export default {
@@ -25,6 +25,7 @@ export default {
     isOpen: false,
     title: 'Filtrar Problemas',
     description: 'Selecione os filtros para refinar sua busca',
+    filterOptions: [],
   },
   argTypes: {
     isOpen: {
@@ -45,6 +46,12 @@ export default {
       },
       description: 'Descrição do dialog',
     },
+    filterOptions: {
+      control: {
+        type: 'object',
+      },
+      description: 'Lista de opções de filtros',
+    },
     onClose: {
       action: 'closed',
       description: 'Callback quando o dialog é fechado',
@@ -57,7 +64,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Componente de dialog para filtros com checkboxes múltiplos e dropdown de período. Baseado no design de apps de hábitos.',
+        component: 'Componente de dialog para filtros com checkboxes múltiplos. Lista simples de filtros configurável pelo usuário.',
       },
     },
   },
@@ -66,6 +73,17 @@ export default {
 export const Primary: StoryObj<FilterDialogProps> = {
   render: (args) => {
     const [isOpen, setIsOpen] = useState(false)
+    
+    const filterOptions: FilterOption[] = [
+      { id: 'para_analise', label: 'Para Análise', checked: false },
+      { id: 'em_andamento', label: 'Em Andamento', checked: false },
+      { id: 'concluido', label: 'Concluído', checked: false },
+      { id: 'aceito', label: 'Aceito', checked: false },
+      { id: 'alta', label: 'Prioridade Alta', checked: false },
+      { id: 'media', label: 'Prioridade Média', checked: false },
+      { id: 'baixa', label: 'Prioridade Baixa', checked: false },
+      { id: 'critica', label: 'Prioridade Crítica', checked: false },
+    ]
     
     return (
       <div>
@@ -78,8 +96,10 @@ export const Primary: StoryObj<FilterDialogProps> = {
         </Button>
         
         <FilterDialog
+
           {...args}
           isOpen={isOpen}
+          filterOptions={filterOptions}
           onClose={() => setIsOpen(false)}
           onApply={(filters) => {
             console.log('Filtros aplicados:', filters)
@@ -97,13 +117,23 @@ export const AlwaysOpen: StoryObj<FilterDialogProps> = {
     title: 'Filtrar Problemas',
     description: 'Selecione os filtros para refinar sua busca',
   },
-  render: (args) => (
-    <FilterDialog
-      {...args}
-      onClose={() => console.log('Dialog fechado')}
-      onApply={(filters) => console.log('Filtros aplicados:', filters)}
-    />
-  )
+  render: (args) => {
+    const filterOptions: FilterOption[] = [
+      { id: 'ativo', label: 'Ativo', checked: false },
+      { id: 'inativo', label: 'Inativo', checked: false },
+      { id: 'pendente', label: 'Pendente', checked: false },
+      { id: 'aprovado', label: 'Aprovado', checked: false },
+    ]
+
+    return (
+      <FilterDialog
+        {...args}
+        filterOptions={filterOptions}
+        onClose={() => console.log('Dialog fechado')}
+        onApply={(filters) => console.log('Filtros aplicados:', filters)}
+      />
+    )
+  }
 }
 
 export const CustomTitle: StoryObj<FilterDialogProps> = {
@@ -113,6 +143,14 @@ export const CustomTitle: StoryObj<FilterDialogProps> = {
   },
   render: (args) => {
     const [isOpen, setIsOpen] = useState(false)
+    
+    const filterOptions: FilterOption[] = [
+      { id: 'categoria_a', label: 'Categoria A', checked: false },
+      { id: 'categoria_b', label: 'Categoria B', checked: false },
+      { id: 'categoria_c', label: 'Categoria C', checked: false },
+      { id: 'urgente', label: 'Urgente', checked: false },
+      { id: 'normal', label: 'Normal', checked: false },
+    ]
     
     return (
       <div>
@@ -127,6 +165,7 @@ export const CustomTitle: StoryObj<FilterDialogProps> = {
         <FilterDialog
           {...args}
           isOpen={isOpen}
+          filterOptions={filterOptions}
           onClose={() => setIsOpen(false)}
           onApply={(filters) => {
             console.log('Filtros aplicados:', filters)
@@ -143,14 +182,20 @@ export const WithActiveFilters: StoryObj<FilterDialogProps> = {
     const [isOpen, setIsOpen] = useState(false)
     const [activeFiltersCount, setActiveFiltersCount] = useState(0)
     
-    const handleApplyFilters = (filters: any) => {
-      let count = 0
-      count += filters.status.filter((f: any) => f.checked).length
-      count += filters.priority.filter((f: any) => f.checked).length
-      count += filters.location.filter((f: any) => f.checked).length
-      count += filters.problemType.filter((f: any) => f.checked).length
-      if (filters.dateRange !== 'todos') count += 1
-      
+    const filterOptions: FilterOption[] = [
+      { id: 'para_analise', label: 'Para Análise', checked: false },
+      { id: 'em_andamento', label: 'Em Andamento', checked: false },
+      { id: 'concluido', label: 'Concluído', checked: false },
+      { id: 'alta', label: 'Prioridade Alta', checked: false },
+      { id: 'media', label: 'Prioridade Média', checked: false },
+      { id: 'baixa', label: 'Prioridade Baixa', checked: false },
+      { id: 'bloco_a', label: 'Bloco A', checked: false },
+      { id: 'bloco_b', label: 'Bloco B', checked: false },
+      { id: 'biblioteca', label: 'Biblioteca', checked: false },
+    ]
+    
+    const handleApplyFilters = (filters: FilterOption[]) => {
+      const count = filters.filter(f => f.checked).length
       setActiveFiltersCount(count)
       setIsOpen(false)
       console.log('Filtros aplicados:', filters)
@@ -191,6 +236,7 @@ export const WithActiveFilters: StoryObj<FilterDialogProps> = {
         <FilterDialog
           {...args}
           isOpen={isOpen}
+          filterOptions={filterOptions}
           onClose={() => setIsOpen(false)}
           onApply={handleApplyFilters}
         />
@@ -251,39 +297,37 @@ export const InteractiveExample: StoryObj<FilterDialogProps> = {
     const [filteredProblems, setFilteredProblems] = useState(problems)
     const [activeFiltersCount, setActiveFiltersCount] = useState(0)
     
-    const applyFilters = (filters: any) => {
+    const filterOptions: FilterOption[] = [
+      { id: 'para_analise', label: 'Para Análise', checked: false },
+      { id: 'em_andamento', label: 'Em Andamento', checked: false },
+      { id: 'concluido', label: 'Concluído', checked: false },
+      { id: 'aceito', label: 'Aceito', checked: false },
+      { id: 'alta', label: 'Prioridade Alta', checked: false },
+      { id: 'media', label: 'Prioridade Média', checked: false },
+      { id: 'baixa', label: 'Prioridade Baixa', checked: false },
+      { id: 'critica', label: 'Prioridade Crítica', checked: false },
+      { id: 'bloco_a', label: 'Bloco A', checked: false },
+      { id: 'bloco_b', label: 'Bloco B', checked: false },
+      { id: 'bloco_c', label: 'Bloco C', checked: false },
+      { id: 'biblioteca', label: 'Biblioteca', checked: false },
+    ]
+    
+    const applyFilters = (filters: FilterOption[]) => {
       let filtered = [...problems]
+      const activeFilters = filters.filter(f => f.checked)
       
-      const selectedStatus = filters.status.filter((s: any) => s.checked).map((s: any) => s.id)
-      if (selectedStatus.length > 0) {
-        filtered = filtered.filter(p => selectedStatus.includes(p.status))
-      }
-      
-      const selectedPriority = filters.priority.filter((p: any) => p.checked).map((p: any) => p.id)
-      if (selectedPriority.length > 0) {
-        filtered = filtered.filter(p => selectedPriority.includes(p.priority))
-      }
-      
-      const selectedLocation = filters.location.filter((l: any) => l.checked).map((l: any) => l.id)
-      if (selectedLocation.length > 0) {
-        filtered = filtered.filter(p => selectedLocation.includes(p.location))
-      }
-      
-      const selectedType = filters.problemType.filter((t: any) => t.checked).map((t: any) => t.id)
-      if (selectedType.length > 0) {
-        filtered = filtered.filter(p => selectedType.includes(p.type))
+      if (activeFilters.length > 0) {
+        filtered = filtered.filter(problem => {
+          return activeFilters.some(filter => 
+            problem.status === filter.id ||
+            problem.priority === filter.id ||
+            problem.location === filter.id
+          )
+        })
       }
       
       setFilteredProblems(filtered)
-      
-      let count = 0
-      count += filters.status.filter((f: any) => f.checked).length
-      count += filters.priority.filter((f: any) => f.checked).length
-      count += filters.location.filter((f: any) => f.checked).length
-      count += filters.problemType.filter((f: any) => f.checked).length
-      if (filters.dateRange !== 'todos') count += 1
-      
-      setActiveFiltersCount(count)
+      setActiveFiltersCount(activeFilters.length)
       setIsOpen(false)
     }
     
@@ -325,6 +369,7 @@ export const InteractiveExample: StoryObj<FilterDialogProps> = {
         <FilterDialog
           {...args}
           isOpen={isOpen}
+          filterOptions={filterOptions}
           onClose={() => setIsOpen(false)}
           onApply={applyFilters}
         />
@@ -386,6 +431,13 @@ export const MobileView: StoryObj<FilterDialogProps> = {
   render: (args) => {
     const [isOpen, setIsOpen] = useState(false)
     
+    const filterOptions: FilterOption[] = [
+      { id: 'disponivel', label: 'Disponível', checked: false },
+      { id: 'ocupado', label: 'Ocupado', checked: false },
+      { id: 'manutencao', label: 'Manutenção', checked: false },
+      { id: 'reservado', label: 'Reservado', checked: false },
+    ]
+    
     return (
       <div style={{ width: '100%', padding: '16px' }}>
         <Button 
@@ -400,6 +452,7 @@ export const MobileView: StoryObj<FilterDialogProps> = {
         <FilterDialog
           {...args}
           isOpen={isOpen}
+          filterOptions={filterOptions}
           onClose={() => setIsOpen(false)}
           onApply={(filters) => {
             console.log('Filtros aplicados:', filters)
@@ -420,6 +473,11 @@ export const MinimalExample: StoryObj<FilterDialogProps> = {
   render: (args) => {
     const [isOpen, setIsOpen] = useState(false)
     
+    const filterOptions: FilterOption[] = [
+      { id: 'sim', label: 'Sim', checked: false },
+      { id: 'nao', label: 'Não', checked: false },
+    ]
+    
     return (
       <div>
         <Button 
@@ -432,6 +490,104 @@ export const MinimalExample: StoryObj<FilterDialogProps> = {
         <FilterDialog
           {...args}
           isOpen={isOpen}
+          filterOptions={filterOptions}
+          onClose={() => setIsOpen(false)}
+          onApply={(filters) => {
+            console.log('Filtros aplicados:', filters)
+            setIsOpen(false)
+          }}
+        />
+      </div>
+    )
+  }
+}
+
+export const ManyFilters: StoryObj<FilterDialogProps> = {
+  name: 'Muitos Filtros',
+  args: {
+    title: 'Filtros Completos',
+    description: 'Exemplo com muitas opções de filtros',
+  },
+  render: (args) => {
+    const [isOpen, setIsOpen] = useState(false)
+    
+    const filterOptions: FilterOption[] = [
+      { id: 'status_ativo', label: 'Status: Ativo', checked: false },
+      { id: 'status_inativo', label: 'Status: Inativo', checked: false },
+      { id: 'status_pendente', label: 'Status: Pendente', checked: false },
+      { id: 'prioridade_baixa', label: 'Prioridade: Baixa', checked: false },
+      { id: 'prioridade_media', label: 'Prioridade: Média', checked: false },
+      { id: 'prioridade_alta', label: 'Prioridade: Alta', checked: false },
+      { id: 'prioridade_critica', label: 'Prioridade: Crítica', checked: false },
+      { id: 'categoria_bug', label: 'Categoria: Bug', checked: false },
+      { id: 'categoria_feature', label: 'Categoria: Feature', checked: false },
+      { id: 'categoria_melhoria', label: 'Categoria: Melhoria', checked: false },
+      { id: 'assignee_joao', label: 'Responsável: João', checked: false },
+      { id: 'assignee_maria', label: 'Responsável: Maria', checked: false },
+      { id: 'assignee_pedro', label: 'Responsável: Pedro', checked: false },
+      { id: 'projeto_web', label: 'Projeto: Web', checked: false },
+      { id: 'projeto_mobile', label: 'Projeto: Mobile', checked: false },
+      { id: 'projeto_api', label: 'Projeto: API', checked: false },
+    ]
+    
+    return (
+      <div>
+        <Button 
+          onClick={() => setIsOpen(true)}
+          variant="secondary"
+        >
+          <Funnel size={16} />
+          Ver Todos os Filtros
+        </Button>
+        
+        <FilterDialog
+          {...args}
+          isOpen={isOpen}
+          filterOptions={filterOptions}
+          onClose={() => setIsOpen(false)}
+          onApply={(filters) => {
+            console.log('Filtros aplicados:', filters)
+            setIsOpen(false)
+          }}
+        />
+      </div>
+    )
+  }
+}
+
+export const WithPreselectedFilters: StoryObj<FilterDialogProps> = {
+  name: 'Filtros Pré-selecionados',
+  args: {
+    title: 'Filtros com Seleção Inicial',
+    description: 'Alguns filtros já vêm marcados por padrão',
+  },
+  render: (args) => {
+    const [isOpen, setIsOpen] = useState(false)
+    
+    const filterOptions: FilterOption[] = [
+      { id: 'para_analise', label: 'Para Análise', checked: true },
+      { id: 'em_andamento', label: 'Em Andamento', checked: true },
+      { id: 'concluido', label: 'Concluído', checked: false },
+      { id: 'cancelado', label: 'Cancelado', checked: false },
+      { id: 'alta', label: 'Prioridade Alta', checked: true },
+      { id: 'media', label: 'Prioridade Média', checked: false },
+      { id: 'baixa', label: 'Prioridade Baixa', checked: false },
+    ]
+    
+    return (
+      <div>
+        <Button 
+          onClick={() => setIsOpen(true)}
+          variant="secondary"
+        >
+          <Funnel size={16} />
+          Filtros com Pré-seleção
+        </Button>
+        
+        <FilterDialog
+          {...args}
+          isOpen={isOpen}
+          filterOptions={filterOptions}
           onClose={() => setIsOpen(false)}
           onApply={(filters) => {
             console.log('Filtros aplicados:', filters)
