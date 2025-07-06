@@ -15,12 +15,12 @@ export const StatusBadge = styled('div', {
   variants: {
     variant: {
       toAnalysis: {
-        color: '$blue',
-        backgroundColor: '$lightBlue',
+        color: '$darkBlue',
+        backgroundColor: '$lightBlueBg',
       },
       inAnalysis: {
         color: '$blue',
-        backgroundColor: '$lightBlue',
+        backgroundColor: '$lightBlueBg',
       },
       accepted: {
         color: '$orange',
@@ -31,12 +31,12 @@ export const StatusBadge = styled('div', {
         backgroundColor: '$lightRed',
       },
       inProgress: {
-        color: '$yellow',
+        color: '$orange',
         backgroundColor: '$lightYellow',
       },
       finished: {
         color: '$green',
-        backgroundColor: '$lightGreen2',
+        backgroundColor: '$lightGreenBg',
       },
     },
   },
@@ -47,5 +47,4 @@ export const StatusBadge = styled('div', {
 })
 
 export type StatusBadgeProps = ComponentProps<typeof StatusBadge>
-
 StatusBadge.displayName = 'StatusBadge'
