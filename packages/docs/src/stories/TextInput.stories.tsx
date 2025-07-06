@@ -39,7 +39,7 @@ export default {
       control: {
         type: 'boolean',
       },
-      description: 'Aplica estilo de autocomplete com fundo azul claro',
+      description: 'Aplica estilo de autocomplete',
     },
     maxLength: {
       control: {
