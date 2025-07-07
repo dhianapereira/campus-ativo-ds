@@ -6,24 +6,21 @@ export const colors = {
   lightGray: '#7C7C8A',
 
   green: '#00875F',
-  lightGreen: '#039855',
   greenAccent: '#01EFA7',
-  lightGreenBg: '#F0FFF4',
+  lightGreen: '#039855',
+  lightGreen12Bg: '#0398551F',
 
   darkBlue: '#083A98',
+  darkBlue12Bg: '#083A981F',
   blue: '#0052EA',
-  lightBlue: '#E6EFFF',
-  lightBlueBg: '#F0F4FF',
+  blue12Bg: '#0052EA1F',
 
   orange: '#FF6F00',
-  lightOrange: '#FFF4E6',
-  orangeAccent: '#FCA004',
+  orange12Bg: '#FF6F001F',
 
   yellow: '#FCA004',
-  lightYellow: '#FFFBF0',
-  yellowBg: '#FFFEF0',
+  yellow12Bg: '#FCA0041F',
 
   red: '#9A0E03',
-  lightRed: '#FFF0F0',
-  redBg: '#FFEBEB',
+  red12Bg: '#9A0E031F',
 }

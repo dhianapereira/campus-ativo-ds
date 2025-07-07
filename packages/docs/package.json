@@ -9,7 +9,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@rollup/rollup-darwin-arm64": "^4.5.2",
     "@storybook/addon-a11y": "^7.6.8",
     "phosphor-react": "^1.4.1",
     "polished": "^4.2.2",

@@ -16,27 +16,27 @@ export const StatusBadge = styled('div', {
     variant: {
       toAnalysis: {
         color: '$darkBlue',
-        backgroundColor: '$lightBlueBg',
+        backgroundColor: '$darkBlue12Bg',
       },
       inAnalysis: {
         color: '$blue',
-        backgroundColor: '$lightBlueBg',
+        backgroundColor: '$blue12Bg',
       },
       accepted: {
         color: '$orange',
-        backgroundColor: '$lightOrange',
+        backgroundColor: '$orange12Bg',
       },
       rejected: {
         color: '$red',
-        backgroundColor: '$lightRed',
+        backgroundColor: '$red12Bg',
       },
       inProgress: {
-        color: '$orange',
-        backgroundColor: '$lightYellow',
+        color: '$yellow',
+        backgroundColor: '$yellow12Bg',
       },
       finished: {
-        color: '$green',
-        backgroundColor: '$lightGreenBg',
+        color: '$lightGreen',
+        backgroundColor: '$lightGreen12Bg',
       },
     },
   },
